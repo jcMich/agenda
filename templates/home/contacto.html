@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    Contactanos - Danos tu opinion
+{% endblock %}
+{% block content %}
+    <h1 class="text-danger">CONTACTO</h1>
+    {% if user.is_authenticated %}
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Enviar"/>
+        </form>
+    {% else %}
+        <p class="text-info">Solo usuarios logeados pueden contactar -- .|.</p>
+    {% endif %}
+{% endblock %}

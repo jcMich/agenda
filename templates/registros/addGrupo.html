@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    Agregar grupo
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <form method="POST">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Guardar"/>
+                <input type="reset" value="limpiar"/>
+            </form>
+        </div>
+        <p class="text-danger">Los Grupos existentes son:</p>
+        <div class="col-md-4" style="max-height: 200px;overflow: scroll;overflow-x: hidden">
+            {% for g in grupos %}
+                <p class="text-primary">{{ g.nombre }}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
